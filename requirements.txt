@@ -3,3 +3,6 @@ mysql
 python-dotenv
 mysql.connector
 flask_bcrypt
+flask_sqlalchemy
+mariadb
+pymysql

@@ -1,5 +1,5 @@
 
-def connect_to_database_def(database):
+def connect_to_database_def(host, user, password, database, port):
     from pathlib import Path
     import sys
     parent_div = Path(__file__).parent
@@ -12,20 +12,6 @@ def connect_to_database_def(database):
     # Load environment variables from .env file
 
     load_dotenv()
-    if database == "trading_web_scraper":
-        host = os.getenv("DB_HOST")
-        user = os.getenv("DB_USER")
-        password = os.getenv("DB_PASSWORD")
-        database = os.getenv("DB_database")
-        port = os.getenv("port")
-
-    elif database == "trading_web_scraper_usefull_info":
-        host = os.getenv("DB_HOST")
-        user = os.getenv("DB_USER")
-        password = os.getenv("DB_PASSWORD")
-        database = os.getenv("DB_database_2")
-        port = os.getenv("port")       
-
     
     try:
         conn = mysql.connector.connect(
@@ -43,5 +29,3 @@ def connect_to_database_def(database):
         print(f"Error while connecting to MariaDB: {e}")
 
     return None 
-
-connect_to_database_def("trading_web_scraper")

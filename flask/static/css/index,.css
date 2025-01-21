@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Navbar styling */
+  .navbar {
+    display: flex;
+    justify-content: space-between;  /* Space between title and buttons */
+    align-items: center;
+    background-color: #333;
+    padding: 12px 24px;
+  }
+
+  /* Title/Brand styling */
+  .navbar .brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none; /* So it's not underlined if made a link */
+  }
+
+  /* Button container */
+  .navbar .btn-group {
+    display: flex;
+    gap: 10px; /* Spacing between buttons */
+  }
+
+  /* Buttons styling */
+  .navbar button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #444; 
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .navbar button:hover {
+    background-color: #555;
+  }

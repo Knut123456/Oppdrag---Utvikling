@@ -8,14 +8,18 @@
 <body>
     <div>
         <h1>Create acoount</h1>
-        <form method="POST"
-              action="{{ url_for('login') }}">
+        <form method="POST" action="/create_account/form">
             <input type="text"
-                   name="username"
+                   name="Username"
                    placeholder="Username">
+
+            <input type="text"
+                   name="Email"
+                   placeholder="Email">
             <input type="password"
                    name="password"
                    placeholder="Password">
+            
             <button type="submit">submit</button>
         </form>
     </div>
