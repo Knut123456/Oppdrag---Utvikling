@@ -43,6 +43,8 @@ def index_form():
         Kildespråk = request.form["Kildespråk"] 
         oversettelse = request.form["oversettelse"]
         Bok = request.form["Bok"]
+        kunde =session.get["name"]
+
 
         return redirect("/")  
 

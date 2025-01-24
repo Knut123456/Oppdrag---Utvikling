@@ -47,8 +47,9 @@ def sql_def():
         CREATE TABLE IF NOT EXISTS book (
             id INT AUTO_INCREMENT PRIMARY KEY,
             Bok VARCHAR(50) NOT NULL,
-            normal_språk VARCHAR(50) NOT NULL,
-            språk_vil_ha VARCHAR(50) NOT NULL
+            Kildespråk VARCHAR(50) NOT NULL,
+            oversettelse VARCHAR(50) NOT NULL,
+            kunde VARCHAR(50) NOT NULL
         )
         """
     )
