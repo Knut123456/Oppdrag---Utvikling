@@ -43,9 +43,18 @@ def index_form():
         Kildespråk = request.form["Kildespråk"] 
         oversettelse = request.form["oversettelse"]
         Bok = request.form["Bok"]
-        kunde =session.get["name"]
+        kunde = session.get("name")
+        print(kunde)
+        conn = connect_to_database_def() # gir meg connection basert på koden i functionen
+        cur = conn.cursor() 
+        
+        query = f'INSERT INTO book (Kildespråk, oversettelse, Bok, kunde) VALUES ("{Kildespråk}", "{oversettelse}", "{Bok}", "{kunde}")'
+        cur.execute(query)
+        conn.commit()
 
 
+        cur.close()
+        conn.close()
         return redirect("/")  
 
 @app.route('/login', methods=['get', "post"])
@@ -72,8 +81,9 @@ def login_form():
             rows = cur.fetchall()
             print(rows)
             for row in rows:
-                print(f"{row}")
-                password_database = row[4]
+                #print(f"{row}")
+                password_database = row[3]
+                print(password_database)
                 print(password)
                 if password_database != hashed_password:
                     print("kan ikke logge sin inn")
@@ -101,6 +111,7 @@ def create_account():
 def create_account_form():
     if request.method == 'POST': # tar inn username, password og email
         username = request.form["Username"]
+        
         password = request.form["password"]
         email = request.form["Email"]
         hashed_password = generate_password_hash(password).encode('utf-8') #kryptere passord
@@ -113,6 +124,7 @@ def create_account_form():
         if username_databases == []: # skjekker om det ikke er noe med denne username
             query = f'INSERT INTO users (username, password, email) VALUES ("{username}", "{hashed_password}", "{email}")'
             print(query)
+            session["name"] = username
             cur.execute(query)
             conn.commit()
 

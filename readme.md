@@ -3,9 +3,9 @@ jeg har et proskjekt med login og create account og man skal skrive hvilket bok 
 
 for å bruke proskjekte så må man først clone proskjekt
 
-`git clone`
+`git clone https://github.com/Knut123456/Oppdrag---Utvikling.git`
 
-skrive dette i terminal som installere alle libary jeg har brukt for dette proskjekte
+etterpå skrive dette i terminal som installere alle libary jeg har brukt for dette proskjekte
 
 `pip install -r requirements.txt`
 
