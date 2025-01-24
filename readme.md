@@ -23,6 +23,7 @@ port = hvilket port du vil bruke (typisk 3306)
 
 endre alt til det du vil
 
+når du har laget database og endre det over meg så kan du bare runne sql.py som vil lage tabeller
 
 
 
