@@ -1,18 +1,14 @@
 
-def connect_to_database_def(host, user, password, database, port):
-    from pathlib import Path
-    import sys
-    parent_div = Path(__file__).parent
-    sys.path.append(str(parent_div))
-    import mysql.connector
-    from mysql.connector import Error
-    from dotenv import load_dotenv
-    import os
-
-    # Load environment variables from .env file
-
-    load_dotenv()
+import mysql.connector
+from mysql.connector import Error
+def connect_to_database_def(): #connecter til databasen 
     
+
+    host= "10.100.10.142"
+    user= "Oppdrag_UtviklingOppdrag_Utvikling"
+    password=  "Oppdrag_UtviklingOppdrag_Utvikling" 
+    database = "Oppdrag_UtviklingOppdrag_Utvikling"
+    port = 3306
     try:
         conn = mysql.connector.connect(
             host=host,
@@ -22,7 +18,7 @@ def connect_to_database_def(host, user, password, database, port):
             port=port 
         )
         if conn.is_connected():
-           #print(f"Connected to database ,{database}")
+            print(f"Connected to database, {database}")
             return conn
             
     except Error as e:

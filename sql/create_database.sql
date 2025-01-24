@@ -1,1 +1,2 @@
-CREATE DATABASE Oppdrag_UtviklingOppdrag_Utvikling
+/*change the noe to what you want*/ 
+CREATE DATABASE noe

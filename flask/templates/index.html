@@ -9,17 +9,32 @@
 </head>
 
 <header>
+{% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }}" role="alert">
+            {{ message }}
+          </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
     <nav class="navbar">
         <a href="#" class="brand">Torgersen</a>
         <div class="btn-group">
           <button onclick="window.location.href='create_account'">Create Account</button>
           <button onclick="window.location.href='login'">Login</button>
+          <button onclick="window.location.href='logout'">logout</button>
         </div>
       </nav>
 </header>
 <body>
-    <div>
-        
-    </div>
+  <div class="form-container">
+    <form method="POST" action="/index/form">
+      <input type="text" name="Bok" placeholder="Bok">
+      <input type="text" name="Kildespråk" placeholder="Kildespråk">
+      <input type="text" name="oversettelse" placeholder="oversettelse">
+      <button type="submit">submit</button>
+    </form>
+  </div>
 </body>
 </html>

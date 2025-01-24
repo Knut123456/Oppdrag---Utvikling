@@ -1,3 +1,4 @@
 
 .env
 /sql_lokal
+/flask/__pycache__

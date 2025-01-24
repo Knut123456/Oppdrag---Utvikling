@@ -41,3 +41,48 @@
   .navbar button:hover {
     background-color: #555;
   }
+  /* Eksempel på minimal styling for skjemaet */
+body {
+  /* Bare for eksempel: en nøytral bakgrunnsfarge og font */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+}
+
+.form-container {
+  /* Senterer containeren horisontalt og gir litt avstand */
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container input[type="text"] {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-container button[type="submit"] {
+  padding: 10px;
+  font-size: 14px;
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-container button[type="submit"]:hover {
+  background: #45a049;
+}
