@@ -3,3 +3,4 @@
 /sql_lokal
 /flask/__pycache__
 flask_session/f7c4b2aa8a1415eaf7dd798a1a12f8c2
+flask/secret.py

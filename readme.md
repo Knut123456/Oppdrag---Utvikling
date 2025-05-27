@@ -11,14 +11,16 @@ etterpå skrive dette i terminal som installere alle libary jeg har brukt for de
 
 dette vil laste ned alt man vil ha 
 
-I connect to data filen 
-
+create a secret.py i flask folderen
+skrive denne kode
 ```
-host= "ip addresse"
-user= "hvilket user du bruker"
-password=  "passordet the user du bruker" 
-database = "hva du vil kalle databasen "
-port = hvilket port du vil bruke (typisk 3306)
+database = {
+    "host": "ip din",
+    "user": "user din",
+    "password":  "password din", 
+    "database": "database navnet",
+    "port": porten til database pleier å være 3306 
+}
 ```
 
 endre alt til det du vil

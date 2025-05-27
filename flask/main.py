@@ -1,28 +1,13 @@
 from flask import Flask, render_template, request, redirect, flash, session
-from pathlib import Path
-import mariadb
-
-from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-import os
-
 from connect_to_database import connect_to_database_def
-from dotenv import load_dotenv
 
 from flask_session import Session
 
+from secret import SECRET_KEY
 
-host= "10.100.10.142"
-user= "Oppdrag_UtviklingOppdrag_Utvikling"
-password=  "Oppdrag_UtviklingOppdrag_Utvikling" 
-database = "Oppdrag_UtviklingOppdrag_Utvikling"
-port = 3306
-
-secret_key = "10u29e09dsajide2109379+21uiofpsa082q79eq2d2q802e91073uphsad"
+secret_key = SECRET_KEY
 conn = connect_to_database_def()
-
-
-
 
 app = Flask(__name__) 
 app.secret_key = f'{secret_key}'
@@ -62,10 +47,10 @@ def login():
     return render_template('login.html')
 
 
-        
+# tar inn login form med username og password 
 @app.route('/login/form',  methods=["post"])
 def login_form():
-    if request.method == 'POST': # tar inn username and password
+    if request.method == 'POST': 
         username = request.form["username"] 
         password = request.form["password"]
         session["name"] = username
@@ -142,13 +127,6 @@ def create_account_form():
 def logout():
     session["name"] = None
     return redirect("/")
-    
-          
-
-
-
-
-        
 
 if __name__ == '__main__':
     app.run(debug=True)

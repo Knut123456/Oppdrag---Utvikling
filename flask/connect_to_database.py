@@ -1,14 +1,12 @@
-
+from secret import MARIADB
 import mysql.connector
 from mysql.connector import Error
 def connect_to_database_def(): #connecter til databasen 
-    
-
-    host= "10.100.10.142"
-    user= "Oppdrag_UtviklingOppdrag_Utvikling"
-    password=  "Oppdrag_UtviklingOppdrag_Utvikling" 
-    database = "Oppdrag_UtviklingOppdrag_Utvikling"
-    port = 3306
+    host= MARIADB["host"],
+    user= MARIADB["user"],
+    password=  MARIADB["password"],
+    database = MARIADB["database"],
+    port = MARIADB["port"],
     try:
         conn = mysql.connector.connect(
             host=host,
