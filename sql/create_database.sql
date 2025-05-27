@@ -1,6 +1,7 @@
-CREATE DATABASE Oppdrag_UtviklingOppdrag_Utvikling 
+DROP DATABASE IF EXISTS bok-libary;
+CREATE DATABASE bok-libary;
 
-CREATE USER 'the name you want'@'%' IDENTIFIED BY 'the password you want';
-GRANT INSERT, SELECT ON the name you want.* TO 'the name you want'@'%';
+CREATE USER 'hva du vil'@'%' IDENTIFIED BY 'passord til database';
+GRANT INSERT, SELECT ON bok-libary.* TO 'hva du vil'@'%';
 
 FLUSH PRIVILEGES;
