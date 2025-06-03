@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS book (
     Bok VARCHAR(50) NOT NULL,
     Kildespråk VARCHAR(50) NOT NULL,
     oversettelse VARCHAR(50) NOT NULL,
-    kunde VARCHAR(50) NOT NULL
+    kunde_id int
 );
 
 

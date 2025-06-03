@@ -27,16 +27,16 @@ def index_form():
         Kildespråk = request.form["Kildespråk"] 
         oversettelse = request.form["oversettelse"]
         Bok = request.form["Bok"]
-        kunde = session.get("name")
+        kunde_id = session.get("id")
         conn = connect_to_database_def() # gir meg connection basert på koden i functionen
         cur = conn.cursor() 
         
         query = (
             "INSERT INTO book "
-            "(`Kildespråk`, `oversettelse`, `Bok`, `kunde`) "
+            "(`Kildespråk`, `oversettelse`, `Bok`, `kunde_id`) "
             "VALUES (%s, %s, %s, %s)"
         )
-        val = (Kildespråk, oversettelse, Bok, kunde)
+        val = (Kildespråk, oversettelse, Bok, kunde_id)
 
         cur.execute(query, val) 
         conn.commit()
@@ -74,8 +74,8 @@ def login_form():
                     role = login[4]
                     id = login[0]
                     session["name"] = username_database
-                    session["role"] = role
                     session["id"] = id
+                    print(role)
                     return redirect("/")   
                 else:
                     print("kan ikke logge sin inn")
