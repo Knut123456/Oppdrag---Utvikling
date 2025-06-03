@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, session
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from connect_to_database import connect_to_database_def
-
+from waitress import serve
 from flask_session import Session
 
 from secret import SECRET_KEY
@@ -16,7 +16,7 @@ Session(app)
 
 @app.route('/')
 def index():
-    if not session.get("rows"):
+    if not session.get("name"):
         flash("du må logge inn")
         return redirect("/login")
     return render_template('index.html') 
@@ -55,34 +55,32 @@ def login_form():
     if request.method == 'POST': 
         username = request.form["username"] 
         password = request.form["password"]
-        
-        hashed_password = generate_password_hash(password).encode('utf-8') # hashed databasen
+
         conn = connect_to_database_def() # gir meg connection basert på koden i functionen
         cur = conn.cursor() # gjør slik at jeg can fetchall
         
         try:
-            Select_query = f"SELECT * FROM users WHERE username = '{username}'"
-            
-            cur.execute(Select_query)
-            rows = cur.fetchall()
-            print(rows)
-            for row in rows:
-                password_database = row[3]
-                if password_database == hashed_password:
+            query = "SELECT * FROM users WHERE username = %s"
+            val = (username,)
+            cur.execute(query, val)
+            logins = cur.fetchall()
+            if not logins: ## skjekker om det er noe i varibelen
+                print("No user found with that username.")
+            for login in logins:
+                password_database = login[3]
+                if check_password_hash (password_database, password):
                     print("kan logge seg inn")
-                    session["rows"] = rows
+                    username_database = login[1]
+                    role = login[4]
+                    id = login[0]
+                    session["name"] = username_database
+                    session["role"] = role
+                    session["id"] = id
                     return redirect("/")   
-                if password_database != hashed_password:
+                else:
                     print("kan ikke logge sin inn")
                     flash("username eller passord er feil")
-                    return redirect("/login") 
-            if rows is []:
-                print("No user found with that username.")
-            #password = rows[3]
-            print(password)
-
-            
-                
+                    return redirect("/login")    
         finally:
             cur.close() # lokker det
             conn.close()
@@ -100,7 +98,8 @@ def create_account_form():
         
         password = request.form["password"]
         email = request.form["Email"]
-        hashed_password = generate_password_hash(password).encode('utf-8') #kryptere passord
+        hashed_password = generate_password_hash(password) #kryptere passord
+        print(hashed_password)
         conn = connect_to_database_def()
         cur = conn.cursor()
         Select_query = f"SELECT username FROM users WHERE username = '{username}'"
@@ -130,4 +129,4 @@ def logout():
     return redirect("/")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8080)

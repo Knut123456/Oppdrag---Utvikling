@@ -4,30 +4,27 @@
     box-sizing: border-box;
   }
 
-  /* Navbar styling */
   .navbar {
     display: flex;
-    justify-content: space-between;  /* Space between title and buttons */
+    justify-content: space-between;  
     align-items: center;
     background-color: #333;
     padding: 12px 24px;
   }
 
-  /* Title/Brand styling */
+
   .navbar .brand {
     font-size: 24px;
     font-weight: bold;
     color: #fff;
-    text-decoration: none; /* So it's not underlined if made a link */
+    text-decoration: none; 
   }
 
-  /* Button container */
   .navbar .btn-group {
     display: flex;
-    gap: 10px; /* Spacing between buttons */
+    gap: 10px; 
   }
 
-  /* Buttons styling */
   .navbar button {
     padding: 8px 16px;
     border: none;
@@ -41,9 +38,8 @@
   .navbar button:hover {
     background-color: #555;
   }
-  /* Eksempel på minimal styling for skjemaet */
+  
 body {
-  /* Bare for eksempel: en nøytral bakgrunnsfarge og font */
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -51,7 +47,6 @@ body {
 }
 
 .form-container {
-  /* Senterer containeren horisontalt og gir litt avstand */
   width: 300px;
   margin: 50px auto;
   padding: 20px;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/index,.css">
     <script src="../static/javascript/index.js"></script>
-    <title>Torgersen</title>
+    <title>bok libary</title>
 </head>
 
 <header>
@@ -19,7 +19,7 @@
     {% endif %}
 {% endwith %}
     <nav class="navbar">
-        <a href="#" class="brand">Torgersen</a>
+        <a href="/" class="brand">{{session['name']}}</a>
         <div class="btn-group">
           <button onclick="window.location.href='create_account'">Create Account</button>
           <button onclick="window.location.href='login'">Login</button>

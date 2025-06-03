@@ -7,12 +7,30 @@ for å bruke proskjekte så må man først clone proskjekt
 
 etterpå skrive dette i terminal som installere alle libary jeg har brukt for dette proskjekte
 
+vis du vil kan du laste ned venv 
+
+fra filen proskjekte kjøre
+python -m venv venv 
+
+for å aktivere venv på windeos
+# In cmd.exe
+venv\Scripts\activate.bat
+# In PowerShell
+venv\Scripts\Activate.ps1
+
+# for linux 
+source venv/bin/activate
+
 `pip install -r requirements.txt`
 
 dette vil laste ned alt man vil ha 
 
-
-
+i linux ubuntu hvis du får noen problemer 
+```
+    sudo apt update
+    sudo apt install libmariadb-dev-compat libmariadb-dev
+    sudo apt install pkg-config
+```
 endre alt til det du vil
 
 i sql filen i sql folderen kopier du og adder den til mariadb
