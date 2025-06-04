@@ -7,6 +7,11 @@ for å bruke proskjekte så må man først clone proskjekt
 
 etterpå skrive dette i terminal som installere alle libary jeg har brukt for dette proskjekte
 
+ting du kan trenge og installere
+[python](https://www.python.org/downloads/)
+[mariadb](https://mariadb.org/download/?t=mariadb&p=mariadb&r=11.7.2&os=windows&cpu=x86_64&pkg=msi&mirror=dotsrc)
+på linux kan du bare skrive sudo apt install mariadb
+
 vis du vil kan du laste ned venv 
 
 fra filen proskjekte kjøre
@@ -55,6 +60,7 @@ in username and password du brukte i create user sql fil
         "database": "BokLibary",
         "port": 3306 
     }
+    SECRET_KEY = "heaoawdwadwakdæoangsuhdaøodlsmnfjdadiowaldaudsadgf8wapødjiwo"
 ```
 
 
